@@ -17,25 +17,31 @@ export default function NavBar({
   setPokemonIndex,
   pokemonList,
 }: NavBarProps) {
-  const pokemonIndexLess = () => {
-    setPokemonIndex(pokemonIndex - 1);
+  const handleClick = (pokemonName: string) => {
+    const pokemonToFind = pokemonList.find((pokemon) => {
+      return pokemon.name === pokemonName;
+    });
+    if (pokemonToFind) {
+      /*car un find peut renvoyer un undefinded car l'element recherché peut n pas existé*/
+      pokemonIndex = pokemonList.indexOf(pokemonToFind);
+      setPokemonIndex(pokemonIndex);
+    }
+    console.log({ pokemonToFind });
+    console.log({ pokemonName });
+    console.log("C'est quoi pokemonIndex ? ", pokemonIndex);
   };
 
-  const pokemonIndexPlus = () => {
-    setPokemonIndex(pokemonIndex + 1);
-  };
   return (
     <div>
-      {pokemonIndex > 0 && (
-        <button type="button" onClick={pokemonIndexLess}>
-          Précédent
+      {pokemonList.map((pokemon) => (
+        <button
+          key={pokemon.name}
+          type="button"
+          onClick={() => handleClick(pokemon.name)}
+        >
+          {pokemon.name}
         </button>
-      )}
-      {pokemonIndex < pokemonList.length - 1 && (
-        <button type="button" onClick={pokemonIndexPlus}>
-          Suivant
-        </button>
-      )}
+      ))}
     </div>
   );
 }
