@@ -32,14 +32,6 @@ const pokemonList = [
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
-  const pokemonIndexLess = () => {
-    setPokemonIndex(pokemonIndex - 1);
-  };
-
-  const pokemonIndexPlus = () => {
-    setPokemonIndex(pokemonIndex + 1);
-  };
-
   return (
     <div>
       <NavBar
