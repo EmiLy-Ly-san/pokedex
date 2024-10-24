@@ -22,13 +22,14 @@ export default function NavBar({
       return pokemon.name === pokemonName;
     });
     if (pokemonToFind) {
-      /*car un find peut renvoyer un undefinded car l'element recherché peut n pas existé*/
+      /*car un find peut renvoyer un undefinded car l'element recherché peut n pas existé donc on verifie si il existe bien pour que ts soit content 👍*/
       pokemonIndex = pokemonList.indexOf(pokemonToFind);
       setPokemonIndex(pokemonIndex);
     }
-    console.log({ pokemonToFind });
-    console.log({ pokemonName });
-    console.log("C'est quoi pokemonIndex ? ", pokemonIndex);
+    // console.log({ pokemonToFind });
+    // console.log({ pokemonName });
+    // console.log("C'est quoi pokemonIndex ? ", pokemonIndex);
+    // pokemonToFind.
   };
 
   return (
